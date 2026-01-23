@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-aggregator
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: job-aggregator
+  template:
+    metadata:
+      labels:
+        app: job-aggregator
+    spec:
+      containers:
+        - name: job-aggregator
+          image: YOUR_DOCKERHUB_OR_ECR_IMAGE:latest
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 20
