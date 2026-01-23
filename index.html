@@ -2,28 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KVectorTech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     :root {
-      --primary-dark: #0b3c5d;
-      --primary-light: #0fa3a9;
+      --primary-dark: #0b3a53;
+      --primary-light: #12a4a6;
       --bg-light: #f7fafc;
-      --text-dark: #0f172a;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --text-dark: #1f2937;
+      --card-bg: #ffffff;
     }
 
     body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
       background: var(--bg-light);
       color: var(--text-dark);
-      line-height: 1.6;
     }
 
     /* ===== HEADER ===== */
@@ -45,73 +40,97 @@
       margin: auto;
     }
 
-    .logo {
-  display: flex;
-  align-items: center;
-}
+    .header-inner img {
+      height: 52px;
+    }
 
-.logo-img {
-width: 420px;
-
-}
-
-
-
-    
-    .brand-text h1 {
+    h1 {
+      margin: 0;
       font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 6px;
     }
 
-    .brand-text p {
-      font-size: 16px;
-      opacity: 0.95;
+    .tagline {
+      font-size: 15px;
+      opacity: 0.9;
+      margin-top: 6px;
     }
 
-    /* ===== MAIN ===== */
-    main {
+    /* ===== SECTIONS ===== */
+    section {
       max-width: 1200px;
       margin: 60px auto;
-      padding: 0 40px;
+      padding: 0 80px;
     }
 
     h2 {
       font-size: 28px;
-      margin-bottom: 30px;
-      color: var(--primary-dark);
+      margin-bottom: 24px;
+      color: #083344;
     }
 
-    .cards {
+    /* ===== CARDS ===== */
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 24px;
-      margin-bottom: 60px;
     }
 
     .card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 26px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     }
 
     .card h3 {
-      margin-bottom: 12px;
-      color: var(--primary-dark);
-      font-size: 18px;
+      margin-top: 0;
+      color: #0f4c5c;
     }
 
-    .why {
-      background: #fff;
-      border-radius: 18px;
-      padding: 36px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    /* ===== PROTOTYPE ===== */
+    .prototype-box {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 32px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    .prototype-box textarea {
+      width: 100%;
+      height: 120px;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      resize: none;
+    }
+
+    .prototype-box button {
+      margin-top: 16px;
+      background: linear-gradient(135deg, #0b3a53, #12a4a6);
+      border: none;
+      color: #fff;
+      padding: 12px 22px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .prototype-box button:hover {
+      opacity: 0.9;
+    }
+
+    .output {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 10px;
+      background: #f1f5f9;
+      display: none;
+    }
+
+    .loading {
+      font-style: italic;
+      color: #475569;
     }
 
     /* ===== FOOTER ===== */
@@ -119,27 +138,16 @@ width: 420px;
       text-align: center;
       padding: 40px 20px;
       font-size: 14px;
-      color: #475569;
-    }
-
-    footer a {
-      color: var(--primary-light);
-      text-decoration: none;
-      font-weight: 500;
+      color: #64748b;
     }
 
     @media (max-width: 768px) {
-      header {
-        padding: 40px 30px;
+      header, section {
+        padding: 20px;
       }
 
-      .header-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .logo {
-        height: 64px;
+      h1 {
+        font-size: 28px;
       }
     }
   </style>
@@ -147,77 +155,105 @@ width: 420px;
 
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="header-inner">
-      <img
-        src="assets/kvectortech-logo.png"
-        alt="KVectorTech Logo"
-        class="logo-img"
-      />
-
-      <div class="brand-text">
-        <h1>KVectorTech</h1>
-        <p>GenAI • Rapid Application Development • Cloud • DevOps</p>
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <img src="assets/kvectortech-logo.png" alt="KVectorTech Logo">
+    <div>
+      <h1>KVectorTech</h1>
+      <div class="tagline">
+        GenAI • Rapid Application Development • Cloud • DevOps
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ===== MAIN ===== -->
-  <main>
+<!-- ===== WHAT WE DO ===== -->
+<section>
+  <h2>What We Do</h2>
 
-    <h2>What We Do</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Generative AI (GenAI)</h3>
-        <p>
-          Enterprise-grade AI solutions including intelligent assistants,
-          document automation, AI-driven workflows, and secure model integrations.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Rapid Application Development (RAD)</h3>
-        <p>
-          Accelerated delivery of scalable applications using modern frameworks,
-          APIs, and cloud-native architectures.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Cloud Engineering</h3>
-        <p>
-          Cloud strategy, architecture, and implementation across AWS and Azure
-          with strong emphasis on security and cost optimization.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>DevOps & Automation</h3>
-        <p>
-          CI/CD pipelines, infrastructure as code, Kubernetes, monitoring, and
-          automation to improve reliability and delivery velocity.
-        </p>
-      </div>
+  <div class="card-grid">
+    <div class="card">
+      <h3>Generative AI</h3>
+      <p>Enterprise-ready GenAI solutions including assistants, document automation, and AI-driven workflows.</p>
     </div>
 
-    <div class="why">
-      <h2>Why KVectorTech</h2>
-      <p>
-        KVectorTech partners with organizations to modernize platforms,
-        accelerate product delivery, and unlock business value through AI,
-        cloud, and automation — built for enterprise scale.
-      </p>
+    <div class="card">
+      <h3>Rapid App Development</h3>
+      <p>Accelerated delivery using modern frameworks, APIs, and cloud-native architectures.</p>
     </div>
 
-  </main>
+    <div class="card">
+      <h3>Cloud Engineering</h3>
+      <p>AWS and Azure architecture with security, scalability, and cost optimization.</p>
+    </div>
 
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    Contact: <a href="mailto:info@kvectortech.com">info@kvectortech.com</a><br />
-    © 2026 KVectorTech. All rights reserved.
-  </footer>
+    <div class="card">
+      <h3>DevOps & Automation</h3>
+      <p>CI/CD pipelines, Kubernetes, infrastructure as code, and operational automation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROTOTYPE SECTION ===== -->
+<section>
+  <h2>Prototype: AI Solution Generator</h2>
+
+  <div class="prototype-box">
+    <p><strong>Try a GenAI-powered cloud use case.</strong><br>
+    Describe a business problem and see how an AI solution might respond.</p>
+
+    <textarea id="problemInput" placeholder="Example: We need to automate invoice processing using AI and cloud services..."></textarea>
+
+    <button onclick="runPrototype()">Generate AI Response</button>
+
+    <div id="output" class="output"></div>
+  </div>
+</section>
+
+<!-- ===== WHY KVectorTech ===== -->
+<section>
+  <h2>Why KVectorTech</h2>
+  <div class="card">
+    <p>
+      KVectorTech partners with organizations to modernize platforms, accelerate product delivery,
+      and unlock business value through AI, cloud, and automation — built for enterprise scale.
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  Contact: <strong>info@kvectortech.com</strong><br>
+  © 2026 KVectorTech. All rights reserved.
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  function runPrototype() {
+    const input = document.getElementById("problemInput").value;
+    const output = document.getElementById("output");
+
+    if (!input.trim()) {
+      alert("Please enter a problem statement.");
+      return;
+    }
+
+    output.style.display = "block";
+    output.innerHTML = "<div class='loading'>Analyzing problem using cloud-based GenAI models...</div>";
+
+    setTimeout(() => {
+      output.innerHTML = `
+        <strong>AI Suggested Solution:</strong><br><br>
+        🔹 Use a cloud-native microservices architecture<br>
+        🔹 Apply GenAI models for intelligent data extraction<br>
+        🔹 Secure APIs with OAuth and monitoring<br>
+        🔹 Deploy using CI/CD pipelines and Kubernetes<br><br>
+        <em>This response simulates an AI-generated cloud solution.</em>
+      `;
+    }, 1500);
+  }
+</script>
 
 </body>
 </html>
