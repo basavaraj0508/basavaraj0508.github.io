@@ -1,5 +1,7 @@
+[functions]
+  directory = "netlify/functions"
+
 [[redirects]]
   from = "/jobs"
-  to = "https://job-aggregator.onrender.com/jobs"
+  to = "/.netlify/functions/jobs"
   status = 200
-  force = true
