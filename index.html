@@ -247,14 +247,20 @@ async function searchJobs() {
 <!-- ===== JAVASCRIPT ===== -->
 <script>
 async function searchJobs() {
-  const q = document.getElementById("jobQuery").value;
-  const loc = document.getElementById("jobLocation").value;
+  const q = document.getElementById("jobQuery").value || "devops";
   const resultsDiv = document.getElementById("jobResults");
 
   resultsDiv.innerHTML = "Loading jobs...";
 
   try {
-    const res = await fetch(`/jobs?q=${encodeURIComponent(q)}&location=${encodeURIComponent(loc)}`);
+    const res = await fetch(
+      `https://remotive.com/api/remote-jobs?search=${encodeURIComponent(q)}`
+    );
+
+    if (!res.ok) {
+      throw new Error("API error");
+    }
+
     const data = await res.json();
 
     if (!data.jobs || data.jobs.length === 0) {
@@ -262,19 +268,21 @@ async function searchJobs() {
       return;
     }
 
-    resultsDiv.innerHTML = data.jobs.map(job => `
-      <div class="job-card">
-        <strong>${job.title}</strong><br>
-        ${job.company} — ${job.location}<br>
-        <em>${job.source}</em><br>
+    resultsDiv.innerHTML = data.jobs.slice(0, 10).map(job => `
+      <div style="margin-bottom:16px; padding:14px; border:1px solid #e2e8f0; border-radius:8px;">
+        <strong>${job.title}</strong><br/>
+        ${job.company_name}<br/>
+        <em>Remote</em><br/>
         <a href="${job.url}" target="_blank">View Job</a>
       </div>
     `).join("");
   } catch (err) {
+    console.error(err);
     resultsDiv.innerHTML = "Failed to load jobs.";
   }
 }
 </script>
+
 
 
 </body>
