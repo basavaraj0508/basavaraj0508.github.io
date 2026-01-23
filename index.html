@@ -23,11 +23,7 @@
 
     /* ===== HEADER ===== */
     header {
-      background: linear-gradient(
-        135deg,
-        var(--primary-dark),
-        var(--primary-light)
-      );
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
       padding: 20px 80px;
       color: #fff;
     }
@@ -39,13 +35,10 @@
       max-width: 1200px;
       margin: auto;
     }
-.logo-img {
-width: 200px;
-height: 150px;
-  
-}
-    .header-inner img {
-      height: 152px;
+
+    .logo-img {
+      width: 200px;
+      height: 150px;
     }
 
     h1 {
@@ -59,7 +52,6 @@ height: 150px;
       margin-top: 6px;
     }
 
-    /* ===== SECTIONS ===== */
     section {
       max-width: 1200px;
       margin: 60px auto;
@@ -72,7 +64,6 @@ height: 150px;
       color: #083344;
     }
 
-    /* ===== CARDS ===== */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -86,11 +77,6 @@ height: 150px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #0f4c5c;
-    }
-
     /* ===== PROTOTYPE ===== */
     .prototype-box {
       background: #ffffff;
@@ -99,18 +85,16 @@ height: 150px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.08);
     }
 
-    .prototype-box textarea {
+    .prototype-box input {
       width: 100%;
-      height: 120px;
-      padding: 14px;
+      padding: 12px;
       font-size: 15px;
       border-radius: 8px;
       border: 1px solid #cbd5e1;
-      resize: none;
+      margin-bottom: 12px;
     }
 
     .prototype-box button {
-      margin-top: 16px;
       background: linear-gradient(135deg, #0b3a53, #12a4a6);
       border: none;
       color: #fff;
@@ -120,24 +104,24 @@ height: 150px;
       cursor: pointer;
     }
 
-    .prototype-box button:hover {
-      opacity: 0.9;
-    }
-
-    .output {
+    .results {
       margin-top: 24px;
-      padding: 18px;
+    }
+
+    .job-card {
+      background: #f8fafc;
       border-radius: 10px;
-      background: #f1f5f9;
-      display: none;
+      padding: 16px;
+      margin-bottom: 14px;
+      border-left: 5px solid #12a4a6;
     }
 
-    .loading {
-      font-style: italic;
-      color: #475569;
+    .job-card a {
+      color: #0b3a53;
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -149,10 +133,6 @@ height: 150px;
       header, section {
         padding: 20px;
       }
-
-      h1 {
-        font-size: 28px;
-      }
     }
   </style>
 </head>
@@ -162,12 +142,10 @@ height: 150px;
 <!-- ===== HEADER ===== -->
 <header>
   <div class="header-inner">
-    <img src="assets/kvectortech-logo.png" alt="KVectorTech Logo" class="logo-img">
+    <img src="assets/kvectortech-logo.png" class="logo-img" alt="KVectorTech Logo">
     <div>
       <h1>KVectorTech</h1>
-      <div class="tagline">
-        GenAI • Rapid Application Development • Cloud • DevOps
-      </div>
+      <div class="tagline">GenAI • Rapid App Development • Cloud • DevOps</div>
     </div>
   </div>
 </header>
@@ -175,88 +153,76 @@ height: 150px;
 <!-- ===== WHAT WE DO ===== -->
 <section>
   <h2>What We Do</h2>
-
   <div class="card-grid">
-    <div class="card">
-      <h3>Generative AI</h3>
-      <p>Enterprise-ready GenAI solutions including assistants, document automation, and AI-driven workflows.</p>
-    </div>
-
-    <div class="card">
-      <h3>Rapid App Development</h3>
-      <p>Accelerated delivery using modern frameworks, APIs, and cloud-native architectures.</p>
-    </div>
-
-    <div class="card">
-      <h3>Cloud Engineering</h3>
-      <p>AWS and Azure architecture with security, scalability, and cost optimization.</p>
-    </div>
-
-    <div class="card">
-      <h3>DevOps & Automation</h3>
-      <p>CI/CD pipelines, Kubernetes, infrastructure as code, and operational automation.</p>
-    </div>
+    <div class="card"><h3>Generative AI</h3><p>Enterprise GenAI assistants and automation.</p></div>
+    <div class="card"><h3>Rapid App Development</h3><p>Cloud-native APIs and platforms.</p></div>
+    <div class="card"><h3>Cloud Engineering</h3><p>AWS & Azure secure architectures.</p></div>
+    <div class="card"><h3>DevOps & Automation</h3><p>CI/CD, Kubernetes, IaC.</p></div>
   </div>
 </section>
 
-<!-- ===== PROTOTYPE SECTION ===== -->
+<!-- ===== JOB SEARCH PROTOTYPE ===== -->
 <section>
-  <h2>Prototype: AI Solution Generator</h2>
+  <h2>Prototype: Tech Job Aggregator</h2>
 
   <div class="prototype-box">
-    <p><strong>Try a GenAI-powered cloud use case.</strong><br>
-    Describe a business problem and see how an AI solution might respond.</p>
+    <p><strong>Search DevOps, SRE, Platform & Cloud roles</strong></p>
 
-    <textarea id="problemInput" placeholder="Example: We need to automate invoice processing using AI and cloud services..."></textarea>
+    <input id="jobQuery" placeholder="Keyword (devops, sre, platform engineer)" value="devops">
+    <input id="jobLocation" placeholder="Location (Hartford, CT)" value="United States">
 
-    <button onclick="runPrototype()">Generate AI Response</button>
+    <button onclick="searchJobs()">Search Jobs</button>
 
-    <div id="output" class="output"></div>
+    <div id="jobResults" class="results"></div>
   </div>
 </section>
 
-<!-- ===== WHY KVectorTech ===== -->
+<!-- ===== WHY ===== -->
 <section>
   <h2>Why KVectorTech</h2>
   <div class="card">
-    <p>
-      KVectorTech partners with organizations to modernize platforms, accelerate product delivery,
-      and unlock business value through AI, cloud, and automation — built for enterprise scale.
-    </p>
+    We help enterprises modernize platforms, accelerate delivery,
+    and unlock value through AI, cloud, and automation.
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   Contact: <strong>info@kvectortech.com</strong><br>
-  © 2026 KVectorTech. All rights reserved.
+  © 2026 KVectorTech
 </footer>
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-  function runPrototype() {
-    const input = document.getElementById("problemInput").value;
-    const output = document.getElementById("output");
+async function searchJobs() {
+  const q = document.getElementById("jobQuery").value;
+  const loc = document.getElementById("jobLocation").value;
+  const results = document.getElementById("jobResults");
 
-    if (!input.trim()) {
-      alert("Please enter a problem statement.");
-      return;
-    }
+  results.innerHTML = "Loading jobs...";
 
-    output.style.display = "block";
-    output.innerHTML = "<div class='loading'>Analyzing problem using cloud-based GenAI models...</div>";
+  try {
+    const res = await fetch(
+      `https://YOUR-API-DOMAIN/jobs?q=${encodeURIComponent(q)}&location=${encodeURIComponent(loc)}&limit=20`
+    );
+    const data = await res.json();
 
-    setTimeout(() => {
-      output.innerHTML = `
-        <strong>AI Suggested Solution:</strong><br><br>
-        🔹 Use a cloud-native microservices architecture<br>
-        🔹 Apply GenAI models for intelligent data extraction<br>
-        🔹 Secure APIs with OAuth and monitoring<br>
-        🔹 Deploy using CI/CD pipelines and Kubernetes<br><br>
-        <em>This response simulates an AI-generated cloud solution.</em>
+    results.innerHTML = "";
+
+    data.jobs.forEach(job => {
+      const div = document.createElement("div");
+      div.className = "job-card";
+      div.innerHTML = `
+        <div><strong>${job.title}</strong> (${job.source})</div>
+        <div>${job.company} — ${job.location}</div>
+        <a href="${job.url}" target="_blank">Apply →</a>
       `;
-    }, 1500);
+      results.appendChild(div);
+    });
+
+  } catch (e) {
+    results.innerHTML = "Failed to load jobs.";
   }
+}
 </script>
 
 </body>
