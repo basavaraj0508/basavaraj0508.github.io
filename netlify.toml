@@ -5,3 +5,4 @@
   from = "/jobs"
   to = "/.netlify/functions/jobs"
   status = 200
+  force = true
