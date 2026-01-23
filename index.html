@@ -202,7 +202,7 @@ async function searchJobs() {
 
   try {
     const res = await fetch(
-      `https://YOUR-API-DOMAIN/jobs?q=${encodeURIComponent(q)}&location=${encodeURIComponent(loc)}&limit=20`
+      `https://kvectortech.com/jobs?q=${encodeURIComponent(q)}&location=${encodeURIComponent(loc)}&limit=20`
     );
     const data = await res.json();
 
