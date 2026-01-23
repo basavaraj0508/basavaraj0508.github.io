@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/jobs"
+  to = "https://job-aggregator.onrender.com/jobs"
+  status = 200
+  force = true
