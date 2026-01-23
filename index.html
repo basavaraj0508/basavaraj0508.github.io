@@ -2,97 +2,159 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KVectorTech | GenAI • Rapid Application Development • Cloud • DevOps</title>
 
   <style>
-    body {
+    :root {
+      --primary: #0f4c75;
+      --secondary: #00b4d8;
+      --bg: #f8fafc;
+      --text: #1f2933;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: #0f172a;
-      background-color: #ffffff;
+      padding: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ===== Header ===== */
     header {
-      background: linear-gradient(135deg, #0b1f3b, #0ea5a4);
-      padding: 40px 20px;
+      background: linear-gradient(135deg, var(--primary), #083344);
       color: white;
+      padding: 60px 20px;
     }
 
-    .header-content {
+    .header-container {
       max-width: 1100px;
       margin: auto;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .logo {
-      height: 60px;
+      height: 70px;
     }
 
-    .tagline {
-      font-size: 14px;
-      opacity: 0.95;
-      margin-top: 4px;
+    .brand h1 {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
     }
 
-    main {
+    .brand p {
+      color: #cfefff;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* ===== Sections ===== */
+    section {
       max-width: 1100px;
       margin: 60px auto;
       padding: 0 20px;
     }
 
     h2 {
+      font-size: 1.8rem;
       margin-bottom: 24px;
+      color: var(--primary);
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      gap: 20px;
     }
 
     .card {
-      border: 1px solid #e5e7eb;
-      border-radius: 12px;
+      background: var(--card);
       padding: 24px;
-      background: #ffffff;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
     }
 
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    /* ===== Why Section ===== */
+    .why {
+      background: white;
+      padding: 50px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    /* ===== Footer ===== */
     footer {
-      background: #f8fafc;
-      text-align: center;
+      background: #020617;
+      color: #cbd5e1;
       padding: 30px 20px;
-      font-size: 14px;
-      color: #475569;
+      text-align: center;
       margin-top: 80px;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-content">
-    <img src="assets/kvectortech-logo.png" alt="KVectorTech Logo" class="logo" />
-    <div>
-      <h1>KVectorTech</h1>
-      <div class="tagline">GenAI • Rapid Application Development • Cloud • DevOps</div>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="header-container">
+      <img src="assets/kvectortech-logo.png" alt="KVectorTech Logo" class="logo" />
+      <div class="brand">
+        <h1>KVectorTech</h1>
+        <p>GenAI • Rapid Application Development • Cloud • DevOps</p>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
+  <!-- ===== What We Do ===== -->
   <section>
     <h2>What We Do</h2>
     <div class="cards">
       <div class="card">
         <h3>Generative AI (GenAI)</h3>
         <p>
-          Enterprise-grade AI solutions including intelligent assistants,
-          document automation, secure model integrations, and AI-driven workflows.
+          Enterprise-ready GenAI solutions including intelligent assistants,
+          document automation, AI-driven workflows, and secure model integrations.
         </p>
       </div>
 
@@ -100,7 +162,7 @@
         <h3>Rapid Application Development (RAD)</h3>
         <p>
           Accelerated delivery of scalable applications using modern frameworks,
-          APIs, and cloud-native architectures with speed and quality.
+          APIs, and cloud-native architectures focused on speed and quality.
         </p>
       </div>
 
@@ -108,34 +170,37 @@
         <h3>Cloud Engineering</h3>
         <p>
           Cloud strategy, architecture, and implementation across AWS and Azure
-          with strong focus on security, resilience, and cost optimization.
+          with strong emphasis on security, resiliency, and cost optimization.
         </p>
       </div>
 
       <div class="card">
         <h3>DevOps & Automation</h3>
         <p>
-          CI/CD pipelines, infrastructure as code, Kubernetes, monitoring,
-          and automation to improve reliability and delivery velocity.
+          CI/CD pipelines, infrastructure as code, Kubernetes, monitoring, and
+          operational automation to improve reliability and delivery velocity.
         </p>
       </div>
     </div>
   </section>
 
-  <section style="margin-top: 80px;">
+  <!-- ===== Why KVectorTech ===== -->
+  <section class="why">
     <h2>Why KVectorTech</h2>
     <p>
-      KVectorTech partners with organizations to modernize platforms,
-      accelerate product delivery, and unlock business value through AI,
-      cloud, and automation — built for enterprise scale.
+      KVectorTech partners with organizations to modernize platforms, accelerate
+      product delivery, and unlock business value through AI, cloud, and automation.
+      Our approach is pragmatic, secure, and designed for enterprise scale.
     </p>
   </section>
-</main>
 
-<footer>
-  Contact: <strong>info@kvectortech.com</strong><br/>
-  © 2026 KVectorTech. All rights reserved.
-</footer>
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>
+      © 2026 KVectorTech · Contact:
+      <a href="mailto:info@kvectortech.com">info@kvectortech.com</a>
+    </p>
+  </footer>
 
 </body>
 </html>
