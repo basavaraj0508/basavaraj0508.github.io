@@ -2,36 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KVectorTech | GenAI • Rapid Application Development • Cloud • DevOps</title>
 
   <style>
     :root {
-      --primary: #0f4c75;
-      --secondary: #00b4d8;
-      --bg: #f8fafc;
-      --text: #1f2933;
-      --card: #ffffff;
+      --primary: #0a2540;
+      --accent: #0ea5a4;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
 
     body {
-      background: var(--bg);
       color: var(--text);
+      background: white;
       line-height: 1.6;
     }
 
-    /* ===== Header ===== */
+    /* ---------- HEADER ---------- */
     header {
-      background: linear-gradient(135deg, var(--primary), #083344);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       color: white;
-      padding: 60px 20px;
+      padding: 28px 20px;
     }
 
     .header-container {
@@ -39,106 +40,113 @@
       margin: auto;
       display: flex;
       align-items: center;
-      gap: 24px;
-      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
     }
 
     .logo {
-      height: 70px;
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
     }
 
     .brand h1 {
-      font-size: 2.2rem;
-      margin-bottom: 6px;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 4px;
     }
 
     .brand p {
-      color: #cfefff;
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 0.95rem;
+      opacity: 0.9;
     }
 
-    /* ===== Sections ===== */
+    /* ---------- SECTIONS ---------- */
     section {
+      padding: 64px 20px;
+    }
+
+    .container {
       max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
+      margin: auto;
     }
 
     h2 {
       font-size: 1.8rem;
-      margin-bottom: 24px;
-      color: var(--primary);
+      margin-bottom: 28px;
     }
 
+    /* ---------- CARDS ---------- */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      gap: 24px;
     }
 
     .card {
-      background: var(--card);
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease;
+      background: var(--card-bg);
+      padding: 28px;
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.1);
     }
 
     .card h3 {
       margin-bottom: 12px;
-      color: var(--primary);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
     }
 
     .card p {
       font-size: 0.95rem;
-      color: #4b5563;
+      color: var(--muted);
     }
 
-    /* ===== Why Section ===== */
+    /* ---------- WHY SECTION ---------- */
     .why {
-      background: white;
-      padding: 50px 20px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      background: var(--light-bg);
     }
 
-    /* ===== Footer ===== */
+    .why p {
+      max-width: 760px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    /* ---------- FOOTER ---------- */
     footer {
-      background: #020617;
-      color: #cbd5e1;
-      padding: 30px 20px;
       text-align: center;
-      margin-top: 80px;
-    }
-
-    footer p {
+      padding: 36px 20px;
       font-size: 0.9rem;
+      color: var(--muted);
+      background: #ffffff;
     }
 
     footer a {
-      color: var(--secondary);
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ===== Header ===== -->
+  <!-- HEADER -->
   <header>
     <div class="header-container">
-      <img src="assets/kvectortech-logo.png" alt="KVectorTech Logo" class="logo" />
+      <div class="logo-wrap">
+        <img src="assets/kvectortech-logo.png" alt="KVectorTech Logo" class="logo" />
+      </div>
       <div class="brand">
         <h1>KVectorTech</h1>
         <p>GenAI • Rapid Application Development • Cloud • DevOps</p>
@@ -146,59 +154,63 @@
     </div>
   </header>
 
-  <!-- ===== What We Do ===== -->
+  <!-- WHAT WE DO -->
   <section>
-    <h2>What We Do</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Generative AI (GenAI)</h3>
-        <p>
-          Enterprise-ready GenAI solutions including intelligent assistants,
-          document automation, AI-driven workflows, and secure model integrations.
-        </p>
-      </div>
+    <div class="container">
+      <h2>What We Do</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Generative AI (GenAI)</h3>
+          <p>
+            Enterprise-grade AI solutions including intelligent assistants,
+            document automation, secure model integrations, and AI-driven workflows.
+          </p>
+        </div>
 
-      <div class="card">
-        <h3>Rapid Application Development (RAD)</h3>
-        <p>
-          Accelerated delivery of scalable applications using modern frameworks,
-          APIs, and cloud-native architectures focused on speed and quality.
-        </p>
-      </div>
+        <div class="card">
+          <h3>Rapid Application Development (RAD)</h3>
+          <p>
+            Accelerated delivery of scalable applications using modern frameworks,
+            APIs, and cloud-native architectures with speed and quality.
+          </p>
+        </div>
 
-      <div class="card">
-        <h3>Cloud Engineering</h3>
-        <p>
-          Cloud strategy, architecture, and implementation across AWS and Azure
-          with strong emphasis on security, resiliency, and cost optimization.
-        </p>
-      </div>
+        <div class="card">
+          <h3>Cloud Engineering</h3>
+          <p>
+            Cloud strategy, architecture, and implementation across AWS and Azure
+            with a strong focus on security, resiliency, and cost optimization.
+          </p>
+        </div>
 
-      <div class="card">
-        <h3>DevOps & Automation</h3>
-        <p>
-          CI/CD pipelines, infrastructure as code, Kubernetes, monitoring, and
-          operational automation to improve reliability and delivery velocity.
-        </p>
+        <div class="card">
+          <h3>DevOps & Automation</h3>
+          <p>
+            CI/CD pipelines, infrastructure as code, Kubernetes, monitoring,
+            and automation to improve reliability and delivery velocity.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Why KVectorTech ===== -->
+  <!-- WHY KVECTORTECH -->
   <section class="why">
-    <h2>Why KVectorTech</h2>
-    <p>
-      KVectorTech partners with organizations to modernize platforms, accelerate
-      product delivery, and unlock business value through AI, cloud, and automation.
-      Our approach is pragmatic, secure, and designed for enterprise scale.
-    </p>
+    <div class="container">
+      <h2>Why KVectorTech</h2>
+      <p>
+        KVectorTech partners with organizations to modernize platforms,
+        accelerate product delivery, and unlock business value through AI,
+        cloud, and automation — built for enterprise scale.
+      </p>
+    </div>
   </section>
 
-  <!-- ===== Footer ===== -->
+  <!-- FOOTER -->
   <footer>
     <p>
-      © 2026 KVectorTech · Contact:
-      <a href="mailto:info@kvectortech.com">info@kvectortech.com</a>
+      Contact: <a href="mailto:info@kvectortech.com">info@kvectortech.com</a><br/>
+      © 2026 KVectorTech. All rights reserved.
     </p>
   </footer>
 
