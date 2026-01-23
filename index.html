@@ -31,7 +31,7 @@ async function searchJobs() {
 
   try {
     const res = await fetch(
-      `/jobs?q=${encodeURIComponent(q)}&location=${encodeURIComponent(loc)}`
+      '/jobs?q=${encodeURIComponent(q)}&location=${encodeURIComponent(loc)}'
     );
 
     if (!res.ok) {
