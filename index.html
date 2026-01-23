@@ -8,15 +8,15 @@
   <style>
     :root {
       --primary: #0f4c75;
-      --secondary: #00b4a0;
+      --accent: #00b4a0;
       --bg-light: #f6f9fc;
       --text-dark: #0a2540;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
@@ -29,96 +29,96 @@
     /* ===== HEADER ===== */
     header {
       background: linear-gradient(90deg, #0b3954, #0f8b8d);
-      color: #fff;
-      padding: 48px 20px;
+      padding: 52px 24px;
     }
 
     .header-container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 28px;
     }
 
     .logo {
-  height: 64px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
-}
+      height: 78px;   /* KEY CHANGE: bigger logo */
+      width: auto;
+      display: block;
+    }
 
     .brand h1 {
-      font-size: 2.2rem;
+      color: #ffffff;
+      font-size: 2.4rem;
       font-weight: 700;
+      letter-spacing: 0.3px;
     }
 
     .brand p {
-      font-size: 1rem;
-      opacity: 0.95;
+      color: #e6f7f6;
+      font-size: 1.05rem;
       margin-top: 6px;
     }
 
     /* ===== MAIN ===== */
     main {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 0 20px;
+      max-width: 1150px;
+      margin: 70px auto;
+      padding: 0 24px;
     }
 
     h2 {
-      font-size: 1.9rem;
-      margin-bottom: 32px;
+      font-size: 2rem;
+      margin-bottom: 36px;
       color: var(--primary);
     }
 
     /* ===== SERVICES ===== */
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
     }
 
     .card {
-      background: #fff;
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+      transition: transform 0.25s ease;
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-6px);
     }
 
     .card h3 {
-      margin-bottom: 14px;
       color: var(--primary);
-      font-size: 1.2rem;
+      margin-bottom: 14px;
+      font-size: 1.25rem;
     }
 
-    /* ===== WHY SECTION ===== */
+    /* ===== WHY ===== */
     .why {
-      background: #fff;
-      margin-top: 70px;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      background: #ffffff;
+      margin-top: 80px;
+      padding: 44px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
 
     /* ===== FOOTER ===== */
     footer {
-      margin-top: 80px;
-      padding: 28px;
+      margin-top: 90px;
+      padding: 30px;
       text-align: center;
       color: #5b6b7a;
       font-size: 0.95rem;
     }
 
     footer a {
-      color: var(--secondary);
-      text-decoration: none;
+      color: var(--accent);
       font-weight: 600;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -128,7 +128,11 @@
   <!-- HEADER -->
   <header>
     <div class="header-container">
-      <img src="assets/kvectortech-logo.png" alt="KVectorTech Logo" class="logo" />
+      <img
+        src="assets/kvectortech-logo.png"
+        alt="KVectorTech Logo"
+        class="logo"
+      />
       <div class="brand">
         <h1>KVectorTech</h1>
         <p>GenAI • Rapid Application Development • Cloud • DevOps</p>
@@ -169,8 +173,8 @@
       <div class="card">
         <h3>DevOps & Automation</h3>
         <p>
-          CI/CD pipelines, infrastructure as code, Kubernetes, monitoring, and
-          operational automation to improve reliability and delivery velocity.
+          CI/CD pipelines, infrastructure as code, Kubernetes, monitoring,
+          and operational automation to improve reliability and delivery velocity.
         </p>
       </div>
     </div>
@@ -180,8 +184,8 @@
       <p>
         KVectorTech partners with organizations to modernize platforms,
         accelerate product delivery, and unlock business value through AI,
-        cloud, and automation. Our approach is pragmatic, secure, and built
-        for enterprise scale.
+        cloud, and automation. Our approach is pragmatic, secure,
+        and built for enterprise scale.
       </p>
     </div>
 
