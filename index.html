@@ -13,6 +13,47 @@
       --text-dark: #1f2937;
       --card-bg: #ffffff;
     }
+<script>
+async function searchJobs() {
+  const qEl = document.getElementById("jobQuery");
+  const locEl = document.getElementById("jobLocation");
+  const resultsDiv = document.getElementById("jobResults");
+
+  if (!qEl || !locEl || !resultsDiv) {
+    console.error("Missing DOM elements for job search");
+    return;
+  }
+
+  const q = qEl.value || "devops";
+  const loc = locEl.value || "United States";
+
+  resultsDiv.innerHTML = "Loading jobs...";
+
+  try {
+    const res = await fetch(
+      `/jobs?q=${encodeURIComponent(q)}&location=${encodeURIComponent(loc)}`
+    );
+
+    if (!res.ok) {
+      throw new Error("API error");
+    }
+
+    const data = await res.json();
+
+    resultsDiv.innerHTML = data.jobs.map(job => `
+      <div style="margin-bottom:16px; padding:12px; border:1px solid #e2e8f0; border-radius:8px;">
+        <strong>${job.title}</strong><br/>
+        ${job.company} — ${job.location}<br/>
+        <em>${job.source}</em><br/>
+        <a href="${job.url}" target="_blank">View Job</a>
+      </div>
+    `).join("");
+  } catch (err) {
+    console.error(err);
+    resultsDiv.innerHTML = "Failed to load jobs.";
+  }
+}
+</script>
 
     body {
       margin: 0;
@@ -168,14 +209,26 @@
   <div class="prototype-box">
     <p><strong>Search DevOps, SRE, Platform & Cloud roles</strong></p>
 
-    <input id="jobQuery" placeholder="Keyword (devops, sre, platform engineer)" value="devops">
-    <input id="jobLocation" placeholder="Location (Hartford, CT)" value="United States">
+    <input
+      id="jobQuery"
+      type="text"
+      placeholder="Job keyword (e.g., devops)"
+      value="devops"
+    />
+
+    <input
+      id="jobLocation"
+      type="text"
+      placeholder="Location (e.g., United States)"
+      value="United States"
+    />
 
     <button onclick="searchJobs()">Search Jobs</button>
 
-    <div id="jobResults" class="results"></div>
+    <div id="jobResults"></div>
   </div>
 </section>
+
 
 <!-- ===== WHY ===== -->
 <section>
