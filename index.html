@@ -2,147 +2,128 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KVectorTech | Gen AI, R&D, Cloud & DevOps</title>
-  <meta name="description" content="KVectorTech delivers Gen AI, R&D-led innovation, Cloud, DevOps, and enterprise integration solutions." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KVectorTech | GenAI • RAD • Cloud • DevOps</title>
+
+  <!-- SEO -->
+  <meta name="description" content="KVectorTech delivers GenAI, Rapid Application Development (RAD), Cloud, and DevOps solutions for modern enterprises." />
+  <meta name="keywords" content="GenAI, RAD, Cloud, DevOps, AI Solutions, Automation, KVectorTech" />
+  <meta name="author" content="KVectorTech" />
 
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: #1f2937;
       line-height: 1.6;
     }
     header {
-      padding: 90px 20px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      padding: 80px 20px;
       text-align: center;
-      background: linear-gradient(135deg, #020617, #0f172a);
     }
     header h1 {
-      font-size: 2.9rem;
+      font-size: 48px;
       margin-bottom: 10px;
     }
-    header h2 {
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #38bdf8;
-      margin-bottom: 20px;
-    }
     header p {
-      font-size: 1.15rem;
-      max-width: 750px;
-      margin: 0 auto;
-      color: #cbd5f5;
+      font-size: 20px;
+      opacity: 0.9;
     }
     section {
       padding: 60px 20px;
-      max-width: 1050px;
+      max-width: 1100px;
       margin: auto;
     }
-    h2.section-title {
-      color: #93c5fd;
-      margin-bottom: 25px;
-      font-size: 1.8rem;
-    }
-    .services {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
     }
     .card {
-      background: #020617;
-      padding: 26px;
+      border: 1px solid #e5e7eb;
       border-radius: 12px;
-      border: 1px solid #1e293b;
+      padding: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
     .card h3 {
       margin-top: 0;
-      color: #e0f2fe;
+      color: #0f172a;
+    }
+    .about {
+      background: #f9fafb;
     }
     footer {
+      background: #0f172a;
+      color: #cbd5f5;
       text-align: center;
-      padding: 35px;
-      background: #020617;
-      color: #94a3b8;
-      font-size: 0.9rem;
+      padding: 30px 20px;
+      font-size: 14px;
     }
     a {
-      color: #60a5fa;
+      color: #2563eb;
       text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>KVectorTech</h1>
-  <h2>Gen AI • R&amp;D • Cloud &amp; DevOps Engineering</h2>
-  <p>
-    We build Gen AI–enabled platforms, conduct applied R&amp;D, and deliver
-    cloud-native and DevOps solutions that help enterprises modernize,
-    scale, and innovate with confidence.
-  </p>
-</header>
+  <!-- HERO -->
+  <header>
+    <h1>KVectorTech</h1>
+    <p>GenAI • Rapid App Development • Cloud • DevOps</p>
+  </header>
 
-<section>
-  <h2 class="section-title">What We Do</h2>
-  <div class="services">
-    <div class="card">
-      <h3>🤖 Gen AI & Applied R&amp;D</h3>
-      <p>
-        Design and implementation of Gen AI solutions, intelligent automation,
-        AI-assisted workflows, and R&amp;D-led innovation for real-world business problems.
-      </p>
+  <!-- SERVICES -->
+  <section>
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>GenAI Solutions</h3>
+        <p>AI-powered automation, intelligent assistants, document processing, and enterprise GenAI integrations.</p>
+      </div>
+      <div class="card">
+        <h3>Rapid Application Development (RAD)</h3>
+        <p>Fast delivery of scalable applications using modern frameworks, APIs, and cloud-native architectures.</p>
+      </div>
+      <div class="card">
+        <h3>Cloud Engineering</h3>
+        <p>AWS, Azure, and hybrid cloud solutions with secure, resilient, and cost-optimized architectures.</p>
+      </div>
+      <div class="card">
+        <h3>DevOps & Automation</h3>
+        <p>CI/CD pipelines, infrastructure as code, Kubernetes, monitoring, and reliability engineering.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>☁️ Cloud & Platform Engineering</h3>
-      <p>
-        Secure, scalable cloud architectures on AWS and Azure, including networking,
-        security, reliability, and cost optimization.
-      </p>
-    </div>
+  <!-- ABOUT -->
+  <section class="about">
+    <h2>About KVectorTech</h2>
+    <p>
+      KVectorTech helps organizations modernize platforms, accelerate delivery, and unlock business value
+      through AI, cloud, and automation. We focus on pragmatic, enterprise-ready solutions that scale.
+    </p>
+  </section>
 
-    <div class="card">
-      <h3>⚙️ DevOps & CI/CD Automation</h3>
-      <p>
-        Enterprise-grade CI/CD pipelines, container platforms, GitOps,
-        infrastructure as code, and release automation.
-      </p>
-    </div>
+  <!-- CONTACT -->
+  <section>
+    <h2>Contact</h2>
+    <p>
+      📧 Email: <a href="mailto:basavaraj0508@gmail.com">basavaraj0508@gmail.com</a><br/>
+      💻 GitHub: <a href="https://github.com/basavaraj0508" target="_blank">github.com/basavaraj0508</a>
+    </p>
+  </section>
 
-    <div class="card">
-      <h3>🔗 Integration & APIs</h3>
-      <p>
-        Middleware, APIs, and system integrations connecting SaaS, legacy,
-        and cloud platforms with reliability and scale.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2 class="section-title">Why KVectorTech</h2>
-  <p>
-    We combine deep hands-on engineering expertise with consulting discipline.
-    Our approach emphasizes execution, security, and long-term value —
-    not just strategy decks.
-  </p>
-</section>
-
-<section>
-  <h2 class="section-title">Contact</h2>
-  <p>
-    📧 Email: <a href="mailto:hello@kvectortech.com">hello@kvectortech.com</a><br />
-    🌐 Website: <a href="https://kvectortech.com">https://kvectortech.com</a>
-  </p>
-</section>
-
-<footer>
-  © 2026 KVectorTech. All rights reserved.
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 KVectorTech. All rights reserved.
+  </footer>
 
 </body>
 </html>
