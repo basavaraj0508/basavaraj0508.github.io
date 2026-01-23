@@ -54,6 +54,24 @@ async function searchJobs() {
   }
 }
 </script>
+    <script>
+function aiScoreJob(job) {
+  const text = (job.title + " " + (job.description || "")).toLowerCase();
+
+  const keywords = [
+    "devops", "sre", "platform", "kubernetes", "docker",
+    "aws", "azure", "terraform", "ci/cd", "jenkins"
+  ];
+
+  let score = 0;
+  keywords.forEach(k => {
+    if (text.includes(k)) score++;
+  });
+
+  return score;
+}
+</script>
+
 
     body {
       margin: 0;
