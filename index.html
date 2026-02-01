@@ -127,6 +127,11 @@ async function searchJobs() {
       margin: 32px auto;
       padding: 0 60px;
     }
+    /* Tighten Prototype section spacing */
+section:nth-of-type(2) {
+  margin-top: 20px;   /* ↓ reduce large gap */
+}
+
 
     h2 {
       font-size: 28px;
@@ -135,7 +140,7 @@ async function searchJobs() {
     }
 h2 {
   font-size: 26px;
-  margin-bottom: 16px; /* ↓ reduced */
+  margin-bottom: 12px; /* ↓ reduced */
 }
 h3 {
   margin-top: 0;
@@ -156,12 +161,12 @@ h3 {
     }
 
     /* ===== PROTOTYPE ===== */
-    .prototype-box {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-    }
+  .prototype-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 20px 20px; /* ↓ less top padding */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
 
     .prototype-box input {
       width: 100%;
