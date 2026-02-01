@@ -358,6 +358,11 @@ h3 {
 </section>
 
 <!--End Raj-->
+<div id="visitorCounter" style="margin-top:8px; font-size:13px; color:#64748b;">
+  👀 Visitors: Loading...
+</div>
+
+  
 <footer>
   Contact: <strong>info@kvectortech.com</strong><br>
   © 2026 KVectorTech
@@ -402,6 +407,14 @@ async function searchJobs() {
 }
 </script>
 
+<script>
+fetch('https://api.countapi.xyz/hit/kvectortech.com/visits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('visitorCounter').innerText =
+      '👀 Visitors: ' + data.value;
+  });
+</script>
 
 
 </body>
