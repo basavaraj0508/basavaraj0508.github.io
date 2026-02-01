@@ -201,6 +201,19 @@ async function searchJobs() {
         padding: 20px;
       }
     }
+/* ===== Registration Form Styles ===== */
+.prototype-box select,
+.prototype-box textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 12px;
+  font-family: inherit;
+}
+
+    
   </style>
 </head>
 
@@ -264,7 +277,71 @@ async function searchJobs() {
     and unlock value through AI, cloud, and automation.
   </div>
 </section>
+<!--Raj-->
+<!-- ===== REGISTRATION FORM ===== -->
+<section>
+  <h2>Register With KVectorTech</h2>
 
+  <div class="prototype-box">
+    <p><strong>Join our AI, Cloud & DevOps community</strong></p>
+
+    <form
+      id="registrationForm"
+      action="https://formspree.io/f/xwvqlbpj"
+      method="POST"
+    >
+      <!-- Metadata -->
+      <input type="hidden" name="source" value="KVectorTech Website">
+      <input type="hidden" name="_subject" value="New KVectorTech Registration">
+
+      <input
+        type="text"
+        name="Full Name"
+        placeholder="Full Name"
+        required
+      />
+
+      <input
+        type="email"
+        name="Email"
+        placeholder="Email Address"
+        required
+      />
+
+      <input
+        type="tel"
+        name="Phone"
+        placeholder="Phone Number"
+      />
+
+      <select name="Interest" required>
+        <option value="">Select Interest</option>
+        <option value="DevOps">DevOps</option>
+        <option value="Cloud Engineering">Cloud Engineering</option>
+        <option value="Generative AI">Generative AI</option>
+        <option value="Job Alerts">Job Alerts</option>
+        <option value="Consulting">Consulting</option>
+      </select>
+
+      <textarea
+        name="Message"
+        placeholder="Tell us what you're looking for..."
+        rows="4"
+      ></textarea>
+
+      <!-- Spam protection -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p style="margin-top:12px; font-size:13px; color:#64748b;">
+      We respect your privacy. No spam.
+    </p>
+  </div>
+</section>
+
+<!--End Raj-->
 <footer>
   Contact: <strong>info@kvectortech.com</strong><br>
   © 2026 KVectorTech
