@@ -358,8 +358,21 @@ h3 {
 </section>
 
 <!--End Raj-->
-<div id="visitorCounter" style="margin-top:8px; font-size:13px; color:#64748b;">
-  👀 Visitors: Loading...
+<div id="visitorBadge" style="
+  display:inline-flex;
+  gap:12px;
+  align-items:center;
+  background:#ecfeff;
+  border:1px solid #12a4a6;
+  color:#083344;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:13px;
+  margin-top:10px;
+">
+  <span id="totalVisits">👀 Total: --</span>
+  <span id="todayVisits">📅 Today: --</span>
+  <span id="liveUsers">🟢 Live: --</span>
 </div>
 
   
@@ -416,6 +429,55 @@ fetch('https://api.countapi.xyz/hit/kvectortech.com/visits')
   });
 </script>
 
+<script>
+const SITE_KEY = 'kvectortech.com';
+
+// ---- Prevent refresh spam (1 count per browser per day)
+const todayKey = new Date().toISOString().slice(0,10);
+const visitedToday = localStorage.getItem('visited_' + todayKey);
+
+// ---- Total visitors
+if (!visitedToday) {
+  fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/total`)
+    .then(res => res.json())
+    .then(() => {
+      localStorage.setItem('visited_' + todayKey, 'yes');
+    });
+}
+
+fetch(`https://api.countapi.xyz/get/${SITE_KEY}/total`)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('totalVisits').innerText =
+      '👀 Total: ' + (data.value || 0);
+  });
+
+// ---- Today’s visitors
+fetch(`https://api.countapi.xyz/get/${SITE_KEY}/${todayKey}`)
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('todayVisits').innerText =
+      '📅 Today: ' + (data.value || 0);
+  });
+
+// Increment today only once
+if (!visitedToday) {
+  fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/${todayKey}`);
+}
+
+// ---- Live users (last 5 minutes)
+fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/live`)
+  .then(() => {
+    setTimeout(() => {
+      fetch(`https://api.countapi.xyz/get/${SITE_KEY}/live`)
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('liveUsers').innerText =
+            '🟢 Live: ' + Math.max(1, Math.round(data.value / 5));
+        });
+    }, 800);
+  });
+</script>
 
 </body>
 </html>
