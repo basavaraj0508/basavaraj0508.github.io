@@ -121,8 +121,8 @@ async function searchJobs() {
 
     section {
       max-width: 1200px;
-      margin: 60px auto;
-      padding: 0 80px;
+      margin: 32px auto;
+      padding: 0 60px;
     }
 
     h2 {
@@ -130,17 +130,25 @@ async function searchJobs() {
       margin-bottom: 24px;
       color: #083344;
     }
+h2 {
+  font-size: 26px;
+  margin-bottom: 16px; /* ↓ reduced */
+}
+h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
 
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      gap: 16px;
     }
 
     .card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 24px;
+      padding: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.06);
     }
 
@@ -148,8 +156,8 @@ async function searchJobs() {
     .prototype-box {
       background: #ffffff;
       border-radius: 14px;
-      padding: 32px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .prototype-box input {
@@ -191,7 +199,7 @@ async function searchJobs() {
 
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 28px 20px;
       font-size: 14px;
       color: #64748b;
     }
@@ -209,7 +217,7 @@ async function searchJobs() {
   font-size: 15px;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-family: inherit;
 }
 
