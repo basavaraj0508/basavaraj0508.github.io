@@ -91,7 +91,7 @@ async function searchJobs() {
     /* ===== HEADER ===== */
    header {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-  padding: 14px 60px;     /* ↓ reduced height */
+  padding: 12px 60px 8px;     /* ↓ reduced height */
   color: #fff;
 }
 
@@ -114,11 +114,13 @@ async function searchJobs() {
       font-size: 30px;
     }
 
-    .tagline {
-      font-size: 14px;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
+  .tagline {
+  font-size: 14px;
+  margin-top: 2px;
+  line-height: 1.2;       /* ↓ reduces vertical height */
+  opacity: 0.9;
+}
+
 
     section {
       max-width: 1200px;
