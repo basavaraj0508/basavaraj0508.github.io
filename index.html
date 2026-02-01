@@ -430,54 +430,47 @@ fetch('https://api.countapi.xyz/hit/kvectortech.com/visits')
 </script>
 
 <script>
-const SITE_KEY = 'kvectortech.com';
+const SITE_KEY = 'kvectortech'; // 👈 keep simple & consistent
+const today = new Date().toISOString().slice(0,10);
 
-// ---- Prevent refresh spam (1 count per browser per day)
-const todayKey = new Date().toISOString().slice(0,10);
-const visitedToday = localStorage.getItem('visited_' + todayKey);
+// ---- Prevent refresh spam (once per day)
+const visitedTodayKey = 'visited_' + today;
+const visitedToday = localStorage.getItem(visitedTodayKey);
 
-// ---- Total visitors
-if (!visitedToday) {
-  fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/total`)
-    .then(res => res.json())
-    .then(() => {
-      localStorage.setItem('visited_' + todayKey, 'yes');
-    });
-}
-
-fetch(`https://api.countapi.xyz/get/${SITE_KEY}/total`)
+// ---- Ensure total counter exists
+fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/total`)
   .then(res => res.json())
   .then(data => {
     document.getElementById('totalVisits').innerText =
-      '👀 Total: ' + (data.value || 0);
+      '👀 Total: ' + data.value;
   });
 
-// ---- Today’s visitors
-fetch(`https://api.countapi.xyz/get/${SITE_KEY}/${todayKey}`)
+// ---- Today counter
+if (!visitedToday) {
+  fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/${today}`)
+    .then(() => localStorage.setItem(visitedTodayKey, 'yes'));
+}
+
+fetch(`https://api.countapi.xyz/get/${SITE_KEY}/${today}`)
   .then(res => res.json())
   .then(data => {
     document.getElementById('todayVisits').innerText =
-      '📅 Today: ' + (data.value || 0);
+      '📅 Today: ' + (data.value || 1);
   });
 
-// Increment today only once
-if (!visitedToday) {
-  fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/${todayKey}`);
-}
+// ---- Live users (rolling window)
+fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/live`);
 
-// ---- Live users (last 5 minutes)
-fetch(`https://api.countapi.xyz/hit/${SITE_KEY}/live`)
-  .then(() => {
-    setTimeout(() => {
-      fetch(`https://api.countapi.xyz/get/${SITE_KEY}/live`)
-        .then(res => res.json())
-        .then(data => {
-          document.getElementById('liveUsers').innerText =
-            '🟢 Live: ' + Math.max(1, Math.round(data.value / 5));
-        });
-    }, 800);
-  });
+setTimeout(() => {
+  fetch(`https://api.countapi.xyz/get/${SITE_KEY}/live`)
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('liveUsers').innerText =
+        '🟢 Live: ' + Math.max(1, Math.ceil(data.value / 5));
+    });
+}, 600);
 </script>
+
 
 </body>
 </html>
